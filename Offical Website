@@ -1,0 +1,1495 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AAPI Youth Network | Chi'ling Inc.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Noto+Serif+SC:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #8B1A1A;
+    --crimson-deep: #5C0E0E;
+    --crimson-light: #C0392B;
+    --jade: #1A5C3A;
+    --jade-light: #2E8B57;
+    --jade-pale: #C8E6D0;
+    --gold: #C9A84C;
+    --gold-pale: #F5E6C8;
+    --ivory: #FAF6EF;
+    --ink: #1A1209;
+    --ink-mid: #3D2B1F;
+    --parchment: #F0E8D8;
+    --silk: rgba(250,246,239,0.97);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── BACKGROUND TEXTURE ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      radial-gradient(ellipse at 15% 20%, rgba(139,26,26,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 70%, rgba(26,92,58,0.04) 0%, transparent 50%);
+    pointer-events: none; z-index: 0;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--crimson-deep);
+    border-bottom: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.05rem;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--gold-pale);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    opacity: 0.85;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--crimson-deep);
+    overflow: hidden;
+  }
+
+  .hero-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(201,168,76,0.04) 60px, rgba(201,168,76,0.04) 61px),
+      repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(201,168,76,0.04) 60px, rgba(201,168,76,0.04) 61px);
+  }
+
+  .hero-border {
+    position: absolute; inset: 20px;
+    border: 1px solid rgba(201,168,76,0.25);
+    pointer-events: none;
+  }
+  .hero-border::before {
+    content: '';
+    position: absolute; inset: 8px;
+    border: 1px solid rgba(201,168,76,0.12);
+  }
+
+  /* Corner ornaments */
+  .hero-corner {
+    position: absolute;
+    width: 40px; height: 40px;
+    border-color: var(--gold);
+    border-style: solid;
+    opacity: 0.6;
+  }
+  .hero-corner.tl { top: 20px; left: 20px; border-width: 2px 0 0 2px; }
+  .hero-corner.tr { top: 20px; right: 20px; border-width: 2px 2px 0 0; }
+  .hero-corner.bl { bottom: 20px; left: 20px; border-width: 0 0 2px 2px; }
+  .hero-corner.br { bottom: 20px; right: 20px; border-width: 0 2px 2px 0; }
+
+  .hero-content {
+    position: relative; z-index: 1;
+    text-align: center; padding: 80px 40px 60px;
+    max-width: 900px;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  .hero-seal {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 3.5rem;
+    color: var(--gold);
+    opacity: 0.15;
+    letter-spacing: 0.3em;
+    margin-bottom: -20px;
+    display: block;
+    animation: fadeUp 1.4s ease 0.1s both;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.75;
+    margin-bottom: 20px;
+    animation: fadeUp 1.2s ease 0.2s both;
+  }
+
+  .hero h1 {
+    font-family: 'IM Fell English', serif;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    color: var(--ivory);
+    line-height: 1.12;
+    margin-bottom: 28px;
+    font-weight: 400;
+    animation: fadeUp 1.2s ease 0.3s both;
+  }
+
+  .hero h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: rgba(250,246,239,0.72);
+    max-width: 580px; margin: 0 auto 40px;
+    font-weight: 300;
+    animation: fadeUp 1.2s ease 0.4s both;
+  }
+
+  .hero-divider {
+    width: 120px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 0 auto 36px;
+    animation: fadeUp 1.2s ease 0.5s both;
+  }
+
+  .hero-cta-group {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 1.2s ease 0.6s both;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 13px 36px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s;
+    cursor: pointer; border: none;
+  }
+
+  .btn-gold {
+    background: var(--gold);
+    color: var(--crimson-deep);
+  }
+  .btn-gold:hover { background: #E8C76A; transform: translateY(-2px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+  }
+  .btn-outline:hover { background: rgba(201,168,76,0.1); transform: translateY(-2px); }
+
+  /* ── SECTION BASE ── */
+  section { position: relative; }
+
+  .section-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 100px 48px;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .section-title {
+    font-family: 'IM Fell English', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .section-rule {
+    width: 64px; height: 2px;
+    background: var(--gold);
+    margin-bottom: 32px;
+  }
+
+  /* ── MISSION ── */
+  .mission-section {
+    background: var(--ivory);
+  }
+
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .mission-text p {
+    color: var(--ink-mid);
+    margin-bottom: 18px;
+    font-size: 1.08rem;
+  }
+
+  .mission-text p:first-of-type {
+    font-size: 1.2rem;
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  .mission-stat-group {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+
+  .stat-card {
+    background: var(--parchment);
+    border-left: 3px solid var(--crimson);
+    padding: 28px 24px;
+  }
+
+  .stat-num {
+    font-family: 'IM Fell English', serif;
+    font-size: 2.6rem;
+    color: var(--crimson);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    font-weight: 600;
+  }
+
+  /* ── PILLARS ── */
+  .pillars-section {
+    background: var(--crimson-deep);
+    color: var(--ivory);
+  }
+
+  .pillars-section .section-label { color: var(--gold); opacity: 0.8; }
+  .pillars-section .section-title { color: var(--ivory); }
+  .pillars-section .section-rule { background: var(--gold); }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .pillar-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 48px 36px;
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pillar-card::before {
+    content: attr(data-num);
+    position: absolute;
+    top: 16px; right: 20px;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 4rem;
+    color: var(--gold);
+    opacity: 0.06;
+    line-height: 1;
+  }
+
+  .pillar-card:hover { background: rgba(201,168,76,0.07); }
+
+  .pillar-icon {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .pillar-card h3 {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 14px;
+    font-weight: 400;
+  }
+
+  .pillar-card p {
+    font-size: 0.95rem;
+    color: rgba(250,246,239,0.68);
+    line-height: 1.8;
+  }
+
+  /* ── PROGRAMS ── */
+  .programs-section { background: var(--parchment); }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 60px;
+  }
+
+  .program-card {
+    background: var(--ivory);
+    border: 1px solid rgba(139,26,26,0.12);
+    border-top: 3px solid var(--jade);
+    padding: 40px 36px;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .program-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(26,92,58,0.1);
+  }
+
+  .program-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--jade-light);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .program-card h3 {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+
+  .program-card p {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .program-detail-list {
+    list-style: none;
+    font-size: 0.85rem;
+    color: var(--ink-mid);
+  }
+
+  .program-detail-list li {
+    padding: 5px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .program-detail-list li::before {
+    content: '◆';
+    position: absolute; left: 0;
+    color: var(--gold);
+    font-size: 0.5rem;
+    top: 9px;
+  }
+
+  /* ── HERITAGE ── */
+  .heritage-section {
+    background: var(--jade);
+    color: var(--ivory);
+  }
+
+  .heritage-section .section-label { color: var(--jade-pale); opacity: 0.8; }
+  .heritage-section .section-title { color: var(--ivory); }
+  .heritage-section .section-rule { background: var(--gold); }
+
+  .heritage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 60px;
+  }
+
+  .heritage-text p {
+    color: rgba(250,246,239,0.78);
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+  }
+
+  .heritage-text strong { color: var(--gold-pale); font-weight: 600; }
+
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 36px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: -32px; top: 6px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .timeline-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--jade-pale);
+    opacity: 0.7;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  .timeline-item h4 {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.15rem;
+    color: var(--gold-pale);
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .timeline-item p {
+    font-size: 0.9rem;
+    color: rgba(250,246,239,0.65);
+    line-height: 1.75;
+  }
+
+  /* ── ADVOCACY ── */
+  .advocacy-section { background: var(--ivory); }
+
+  .advocacy-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 60px;
+  }
+
+  .essay-preview {
+    border-top: 1px solid rgba(139,26,26,0.15);
+    padding: 32px 0;
+  }
+
+  .essay-preview:first-child { border-top: none; padding-top: 0; }
+
+  .essay-meta {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .essay-preview h3 {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .essay-preview p {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+  }
+
+  .read-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid var(--crimson);
+    padding-bottom: 1px;
+    transition: opacity 0.2s;
+  }
+
+  .read-link:hover { opacity: 0.6; }
+
+  .advocacy-sidebar {
+    position: sticky; top: 100px;
+  }
+
+  .sidebar-card {
+    background: var(--crimson-deep);
+    padding: 36px 32px;
+    margin-bottom: 24px;
+    color: var(--ivory);
+  }
+
+  .sidebar-card h4 {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .sidebar-card p {
+    font-size: 0.88rem;
+    color: rgba(250,246,239,0.7);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  /* ── PARTNERSHIPS ── */
+  .partnerships-section {
+    background: var(--parchment);
+    border-top: 1px solid rgba(139,26,26,0.1);
+  }
+
+  .partner-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .partner-item {
+    background: var(--ivory);
+    border: 1px solid rgba(26,92,58,0.12);
+    padding: 36px 24px;
+    text-align: center;
+    transition: background 0.2s;
+  }
+
+  .partner-item:hover { background: var(--jade-pale); }
+
+  .partner-abbr {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.5rem;
+    color: var(--jade);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .partner-name {
+    font-size: 0.78rem;
+    color: var(--ink-mid);
+    line-height: 1.6;
+  }
+
+  /* ── LINEAGE ── */
+  .lineage-section {
+    background: var(--crimson-deep);
+    color: var(--ivory);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lineage-bg {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(201,168,76,0.03) 80px, rgba(201,168,76,0.03) 81px),
+      repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(201,168,76,0.03) 80px, rgba(201,168,76,0.03) 81px);
+  }
+
+  .lineage-section .section-label { color: var(--gold); opacity: 0.8; }
+  .lineage-section .section-title { color: var(--ivory); }
+
+  .lineage-intro {
+    max-width: 620px;
+    color: rgba(250,246,239,0.7);
+    font-size: 1.05rem;
+    margin-bottom: 60px;
+    font-style: italic;
+  }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    position: relative; z-index: 1;
+  }
+
+  .story-card {
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 36px 28px;
+    background: rgba(255,255,255,0.03);
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .story-card:hover { background: rgba(201,168,76,0.06); }
+
+  .story-card::after {
+    content: '故事';
+    position: absolute; bottom: 12px; right: 16px;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    opacity: 0.1;
+  }
+
+  .story-name {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.2rem;
+    color: var(--gold-pale);
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+
+  .story-affil {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--jade-pale);
+    opacity: 0.6;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .story-excerpt {
+    font-size: 0.92rem;
+    color: rgba(250,246,239,0.6);
+    line-height: 1.8;
+    font-style: italic;
+  }
+
+  /* ── CHAPTERS ── */
+  .chapters-section { background: var(--ivory); }
+
+  .chapters-intro {
+    max-width: 680px;
+    color: var(--ink-mid);
+    font-size: 1.05rem;
+    margin-bottom: 48px;
+  }
+
+  .map-placeholder {
+    background: var(--parchment);
+    border: 1px solid rgba(139,26,26,0.1);
+    height: 280px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-dots {
+    position: absolute; inset: 0;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  .map-dot {
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .map-dot span {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--crimson);
+    opacity: 0.25;
+  }
+
+  .map-dot.active span {
+    background: var(--crimson);
+    opacity: 1;
+    box-shadow: 0 0 0 4px rgba(139,26,26,0.15);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(139,26,26,0.15); }
+    50% { box-shadow: 0 0 0 8px rgba(139,26,26,0.05); }
+  }
+
+  .map-label {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.5rem;
+    color: var(--ink-mid);
+    opacity: 0.25;
+    position: absolute;
+    user-select: none;
+  }
+
+  .chapter-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .chapter-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 16px 20px;
+    border: 1px solid rgba(139,26,26,0.1);
+    font-size: 0.9rem;
+  }
+
+  .chapter-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--jade);
+    flex-shrink: 0;
+  }
+
+  .chapter-dot.forming { background: var(--gold); }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--jade);
+    color: var(--ivory);
+  }
+
+  .contact-section .section-label { color: var(--jade-pale); opacity: 0.8; }
+  .contact-section .section-title { color: var(--ivory); }
+  .contact-section .section-rule { background: var(--gold); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 60px;
+  }
+
+  .contact-text p {
+    color: rgba(250,246,239,0.72);
+    margin-bottom: 32px;
+    font-size: 1.05rem;
+  }
+
+  .contact-person {
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding: 24px 0;
+  }
+
+  .contact-person h4 {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--gold-pale);
+    margin-bottom: 4px;
+  }
+
+  .contact-person p {
+    font-size: 0.85rem;
+    color: rgba(250,246,239,0.55);
+    margin-bottom: 6px;
+  }
+
+  .contact-person a {
+    color: var(--jade-pale);
+    font-size: 0.85rem;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(200,230,208,0.3);
+    transition: opacity 0.2s;
+  }
+
+  .contact-person a:hover { opacity: 0.7; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+
+  .form-field {
+    display: flex; flex-direction: column; gap: 6px;
+  }
+
+  .form-field label {
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--jade-pale);
+    opacity: 0.6;
+    font-weight: 600;
+  }
+
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(200,230,208,0.2);
+    color: var(--ivory);
+    padding: 12px 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: rgba(250,246,239,0.3);
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus {
+    border-color: rgba(201,168,76,0.5);
+  }
+
+  .form-field select option { background: var(--jade); }
+
+  .btn-jade {
+    background: var(--gold);
+    color: var(--jade);
+    align-self: flex-start;
+  }
+
+  .btn-jade:hover { background: #E8C76A; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(250,246,239,0.45);
+    padding: 60px 48px;
+  }
+
+  .footer-inner {
+    max-width: 1140px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+  }
+
+  .footer-brand h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+  }
+
+  .footer-brand p {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    max-width: 260px;
+  }
+
+  .footer-col h4 {
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(250,246,239,0.6);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 10px; }
+  .footer-col a {
+    color: rgba(250,246,239,0.4);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    max-width: 1140px; margin: 48px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(250,246,239,0.07);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.75rem;
+  }
+
+  .footer-bottom a { color: var(--jade-light); text-decoration: none; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .mission-grid,
+    .heritage-grid,
+    .advocacy-grid,
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+
+    .pillars-grid,
+    .programs-grid,
+    .stories-grid,
+    .chapter-list { grid-template-columns: 1fr; }
+
+    .partner-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+
+    nav { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    .nav-links a { font-size: 0.68rem; }
+
+    .section-inner { padding: 72px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Chi'ling Inc. · AAPI Youth Network</a>
+  <ul class="nav-links">
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#heritage">Heritage</a></li>
+    <li><a href="#advocacy">Advocacy</a></li>
+    <li><a href="#chapters">Chapters</a></li>
+    <li><a href="#contact">Join</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-border"></div>
+  <div class="hero-corner tl"></div>
+  <div class="hero-corner tr"></div>
+  <div class="hero-corner bl"></div>
+  <div class="hero-corner br"></div>
+  <div class="hero-content">
+    <span class="hero-seal">亞</span>
+    <p class="hero-eyebrow">Chi'ling Inc. · Est. Washington D.C. Metro Area</p>
+    <h1>More Alike Than<br><em>Different</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Empowering AAPI youth through cultural identity, advocacy, and community — bridging generations, dissolving barriers, and amplifying voices that shape our shared future.</p>
+    <div class="hero-cta-group">
+      <a href="#chapters" class="btn btn-gold">Join a Chapter</a>
+      <a href="#programs" class="btn btn-outline">Explore Programs</a>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission-section" id="mission">
+  <div class="section-inner">
+    <div class="mission-grid">
+      <div class="mission-text reveal">
+        <p class="section-label">Our Foundation</p>
+        <h2 class="section-title">Who We Are</h2>
+        <div class="section-rule"></div>
+        <p>Chi'ling Inc. is a nonprofit built on a simple truth: across the vast mosaic of AAPI cultures, our shared experiences far outnumber our differences. We are multiracial, multilingual, multigenerational — and we are one community.</p>
+        <p>Founded on the belief that young people deserve spaces to explore their identities without apology, we bring together youth from across counties, schools, and states to learn, advocate, and lead.</p>
+        <p>From Chinese school folk tales to modern-day civic engagement, we trace the full arc of what it means to be Asian American and Pacific Islander in the United States today.</p>
+        <div style="margin-top: 32px;">
+          <a href="#contact" class="btn btn-gold">Apply Now</a>
+        </div>
+      </div>
+      <div class="mission-stat-group reveal" style="transition-delay:0.15s;">
+        <div class="stat-card">
+          <div class="stat-num">12+</div>
+          <div class="stat-label">County Chapters</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">5</div>
+          <div class="stat-label">State Networks</div>
+        </div>
+        <div class="stat-card" style="border-left-color: var(--jade);">
+          <div class="stat-num">30+</div>
+          <div class="stat-label">Partner Organizations</div>
+        </div>
+        <div class="stat-card" style="border-left-color: var(--gold);">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Stories to Tell</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars-section" id="pillars">
+  <div class="section-inner">
+    <p class="section-label reveal">What We Stand For</p>
+    <h2 class="section-title reveal">Three Pillars of Our Work</h2>
+    <div class="section-rule reveal"></div>
+    <div class="pillars-grid">
+      <div class="pillar-card reveal" data-num="一">
+        <span class="pillar-icon">🌺</span>
+        <h3>Cultural Identity</h3>
+        <p>Reconnecting AAPI youth with their heritage — from the stories told at Chinese school to the living traditions that define who we are. We don't ask you to choose between cultures. We celebrate the whole of you.</p>
+      </div>
+      <div class="pillar-card reveal" data-num="二" style="transition-delay:0.1s;">
+        <span class="pillar-icon">🧠</span>
+        <h3>Mental Health & Wellbeing</h3>
+        <p>Confronting the model minority myth head-on. We provide spaces for honest conversation about mental health, intergenerational trauma, academic pressure, and what it costs to be unseen.</p>
+      </div>
+      <div class="pillar-card reveal" data-num="三" style="transition-delay:0.2s;">
+        <span class="pillar-icon">📢</span>
+        <h3>Advocacy & Civic Voice</h3>
+        <p>From OCA's AAPI curriculum legislation to local school board engagement, we train the next generation of advocates who understand that their story belongs in the public record.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs-section" id="programs">
+  <div class="section-inner">
+    <p class="section-label reveal">What We Offer</p>
+    <h2 class="section-title reveal">Programs & Initiatives</h2>
+    <div class="section-rule reveal"></div>
+    <div class="programs-grid">
+
+      <div class="program-card reveal">
+        <div class="program-tag">Youth Leadership</div>
+        <h3>Ambassadorship Program</h3>
+        <p>County- and school-assigned ambassadors who serve as liaisons between Chi'ling Inc. and their local communities. Modeled on the UN Youth Forum, now reimagined as our Committee of 100 Youth Board.</p>
+        <ul class="program-detail-list">
+          <li>County and school chapter assignments</li>
+          <li>Special recognition and "insider" pathways</li>
+          <li>Partnerships with established national & global organizations</li>
+          <li>Annual youth leadership summit</li>
+        </ul>
+      </div>
+
+      <div class="program-card reveal" style="transition-delay:0.1s;">
+        <div class="program-tag">Education</div>
+        <h3>Cultural Workshops</h3>
+        <p>From crafts and folk stories taught at Chinese school, building through to modern-day customs and how AAPI identity enriches American society. In partnership with CCACC and TECRO.</p>
+        <ul class="program-detail-list">
+          <li>Traditional craft and storytelling sessions</li>
+          <li>Modern identity and civic integration seminars</li>
+          <li>CCACC & TECRO co-hosted workshops</li>
+          <li>Family lineage documentation projects</li>
+        </ul>
+      </div>
+
+      <div class="program-card reveal" style="transition-delay:0.15s;">
+        <div class="program-tag">Research & Memory</div>
+        <h3>Elder Stories Project</h3>
+        <p>Connecting our neurodegenerative health research initiative with Wah Luck House elders to record, preserve, and amplify first-generation voices before they are lost to time.</p>
+        <ul class="program-detail-list">
+          <li>Oral history documentation</li>
+          <li>Partnership with Wah Luck House</li>
+          <li>Neurodegenerative disorder awareness</li>
+          <li>Multilingual archiving</li>
+        </ul>
+      </div>
+
+      <div class="program-card reveal" style="transition-delay:0.2s;">
+        <div class="program-tag">Mental Health</div>
+        <h3>Breaking the Myth Seminars</h3>
+        <p>A workshop series that dismantles the model minority myth and gives AAPI youth frameworks for discussing mental health, identity, and belonging — in their own voices.</p>
+        <ul class="program-detail-list">
+          <li>Group discussion facilitation</li>
+          <li>Case studies incl. historical parallels</li>
+          <li>Guest speakers from psychology & policy</li>
+          <li>Peer support network development</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HERITAGE -->
+<section class="heritage-section" id="heritage">
+  <div class="section-inner">
+    <p class="section-label reveal">Roots & Recognition</p>
+    <h2 class="section-title reveal">Our Heritage, Our Strength</h2>
+    <div class="section-rule reveal"></div>
+    <div class="heritage-grid">
+      <div class="heritage-text reveal">
+        <p>The AAPI experience in America is not a footnote — it is a central chapter. We carry within us the memory of exclusion acts, internment, model minority weaponization, and pandemic-era hate. We also carry the memory of <strong>building railroads, laboratories, legislatures, and communities</strong>.</p>
+        <p>Chi'ling Inc. begins at the foundation — the stories told at Chinese school, the traditions passed down in kitchens and temples — and builds toward an understanding of <strong>what we bring to the table</strong> in contemporary American life.</p>
+        <p>Through our genome, our multiracial identity, and our shared human ancestry, we illuminate what science confirms: we are <strong>more alike than different</strong>. Fear of the other dissolves under the light of that truth.</p>
+        <p style="margin-top: 24px; font-style: italic; color: rgba(250,246,239,0.5); font-size: 0.9rem;">A note on history: MOCO High School graduate Quintin Tai (Class of ~2004) contributes firsthand historical context on AAPI discrimination from 25 years ago. Contact: <a href="mailto:quillyt@gmail.com" style="color: var(--jade-pale); text-decoration: underline;">quillyt@gmail.com</a></p>
+      </div>
+      <div class="reveal" style="transition-delay:0.15s;">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-label">Foundation</div>
+            <h4>Chinese School Stories</h4>
+            <p>The folk tales, festivals, and moral fables that shaped our earliest sense of cultural self.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-label">Historical Context</div>
+            <h4>Discrimination & Resilience</h4>
+            <p>Understanding 25+ years of documented discrimination to contextualize the present and prevent repetition.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-label">Identity</div>
+            <h4>The Multiracial Self</h4>
+            <p>Genome, ancestry, and the lived reality of existing between and across categories.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-label">Modern Day</div>
+            <h4>AAPI in Contemporary America</h4>
+            <p>What we contribute to science, art, politics, and culture — and how to claim that space unapologetically.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-label">Legislative</div>
+            <h4>OCA AAPI Curriculum</h4>
+            <p>Supporting passage of AAPI curriculum legislation in schools across the country.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVOCACY -->
+<section class="advocacy-section" id="advocacy">
+  <div class="section-inner">
+    <p class="section-label reveal">Youth Voices</p>
+    <h2 class="section-title reveal">Advocacy & Essays</h2>
+    <div class="section-rule reveal"></div>
+    <div class="advocacy-grid">
+
+      <div class="reveal">
+        <div class="essay-preview">
+          <div class="essay-meta">Featured Essay · Identity & Politics</div>
+          <h3>The Dimming: How Kamala Harris' Accomplishments Were Overshadowed</h3>
+          <p>An examination of how AAPI and feminist perspectives illuminate a recurring pattern — the erasure of women of color in service of male political narratives, and what it costs us all.</p>
+          <a href="#contact" class="read-link">Submit a Response →</a>
+        </div>
+
+        <div class="essay-preview">
+          <div class="essay-meta">Essay · Historical Analysis</div>
+          <h3>The Crucible and the Community: Fear of the Other as American Tradition</h3>
+          <p>Using Arthur Miller's lens to examine how AAPI communities have been cast as "the other" across generations — and how passionate youth can rewrite that narrative.</p>
+          <a href="#contact" class="read-link">Read More →</a>
+        </div>
+
+        <div class="essay-preview">
+          <div class="essay-meta">In Progress · Neurodegenerative Research</div>
+          <h3>Memory, Loss, and the Elders We Are Losing: A Community Health Crisis</h3>
+          <p>Connecting AAPI elder health outcomes with the urgent need for culturally competent neurodegenerative disease research and community care.</p>
+          <a href="#contact" class="read-link">Contribute Research →</a>
+        </div>
+
+        <div style="margin-top: 32px; padding: 24px; border: 1px dashed rgba(139,26,26,0.2); background: var(--parchment);">
+          <p style="font-size: 0.9rem; color: var(--ink-mid); font-style: italic;">We publish short essays, policy analyses, and personal narratives written by AAPI youth. No byline too small. No story too local.</p>
+          <a href="#contact" class="btn btn-gold" style="display:inline-block; margin-top: 16px;">Submit Your Writing</a>
+        </div>
+      </div>
+
+      <div class="advocacy-sidebar reveal" style="transition-delay:0.15s;">
+        <div class="sidebar-card">
+          <h4>Committee of 100 Youth Board</h4>
+          <p>Our evolution of the UN Youth Forum model: a structured youth governance board with partnerships across national and international organizations.</p>
+          <a href="#contact" class="btn btn-outline" style="font-size:0.72rem; padding: 10px 24px;">Apply for a Seat</a>
+        </div>
+        <div class="sidebar-card" style="background: var(--jade); border-top: 3px solid var(--gold);">
+          <h4>OCA Curriculum Legislation</h4>
+          <p>We are actively supporting the passage of AAPI-inclusive curriculum bills. Join our advocacy network to get involved in your state.</p>
+          <a href="#contact" class="btn btn-outline" style="font-size:0.72rem; padding: 10px 24px; color: var(--gold-pale); border-color: var(--gold-pale);">Take Action</a>
+        </div>
+        <div class="sidebar-card" style="background: rgba(26,18,9,0.9);">
+          <h4>Family Lineage Recognition</h4>
+          <p>A dedicated sub-page honoring family histories, lineages, and the quiet heroism of first- and second-generation Americans. Submit your family's story.</p>
+          <a href="#contact" class="btn btn-outline" style="font-size:0.72rem; padding: 10px 24px;">Share Your Story</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ELDER STORIES -->
+<section class="lineage-section">
+  <div class="lineage-bg"></div>
+  <div class="section-inner">
+    <p class="section-label reveal">Wah Luck House Partnership</p>
+    <h2 class="section-title reveal">Elder Voices Project</h2>
+    <div class="section-rule reveal"></div>
+    <p class="lineage-intro reveal">We are recording and reporting the stories of AAPI elders — first-generation voices that carry the weight of immigration, exclusion, survival, and love. These are the stories that must not be lost.</p>
+    <div class="stories-grid">
+      <div class="story-card reveal">
+        <div class="story-name">Coming Soon</div>
+        <div class="story-affil">Wah Luck House · Washington D.C.</div>
+        <p class="story-excerpt">"I came with nothing but the name of a cousin in Chinatown. Fifty years later, my granddaughter is a doctor. I still don't know if I'm the miracle or she is."</p>
+      </div>
+      <div class="story-card reveal" style="transition-delay:0.1s;">
+        <div class="story-name">Your Story Here</div>
+        <div class="story-affil">First Generation · Any City</div>
+        <p class="story-excerpt">We are actively seeking elders, families, and community members to share their oral histories. Every language. Every generation. Every region.</p>
+      </div>
+      <div class="story-card reveal" style="transition-delay:0.2s;">
+        <div class="story-name">Submit a Record</div>
+        <div class="story-affil">Family Lineage Archive</div>
+        <p class="story-excerpt">Document your family's journey — immigration records, photographs, letters, and living memory. We preserve what institutions overlook.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERSHIPS -->
+<section class="partnerships-section">
+  <div class="section-inner">
+    <p class="section-label reveal">Institutional Partners</p>
+    <h2 class="section-title reveal">Our Network</h2>
+    <div class="section-rule reveal"></div>
+    <div class="partner-grid reveal">
+      <div class="partner-item">
+        <div class="partner-abbr">CCACC</div>
+        <div class="partner-name">Chinese Culture & Community Service Center</div>
+      </div>
+      <div class="partner-item">
+        <div class="partner-abbr">TECRO</div>
+        <div class="partner-name">Taipei Economic & Cultural Representative Office</div>
+      </div>
+      <div class="partner-item">
+        <div class="partner-abbr">OCA</div>
+        <div class="partner-name">Organization of Chinese Americans — National Center</div>
+      </div>
+      <div class="partner-item">
+        <div class="partner-abbr">UN</div>
+        <div class="partner-name">United Nations Youth Programs & Global Partnerships</div>
+      </div>
+      <div class="partner-item">
+        <div class="partner-abbr">C100</div>
+        <div class="partner-name">Committee of 100 — Youth Board Initiative</div>
+      </div>
+      <div class="partner-item">
+        <div class="partner-abbr">WLH</div>
+        <div class="partner-name">Wah Luck House — Elder Community DC</div>
+      </div>
+      <div class="partner-item" style="border: 2px dashed rgba(26,92,58,0.2); background: transparent; opacity:0.6;">
+        <div class="partner-abbr" style="color: var(--ink-mid); opacity:0.5;">+</div>
+        <div class="partner-name">Seeking New Partners</div>
+      </div>
+      <div class="partner-item" style="border: 2px dashed rgba(26,92,58,0.2); background: transparent; opacity:0.6;">
+        <div class="partner-abbr" style="color: var(--ink-mid); opacity:0.5;">+</div>
+        <div class="partner-name">Ivy Legacy & Alumni Networks</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTERS -->
+<section class="chapters-section" id="chapters">
+  <div class="section-inner">
+    <p class="section-label reveal">Local & National</p>
+    <h2 class="section-title reveal">Find Your Chapter</h2>
+    <div class="section-rule reveal"></div>
+    <p class="chapters-intro reveal">Chapters are assigned by county and school, providing a local home base while connecting to a national network. Each chapter hosts its own seminars, workshops, and community events.</p>
+
+    <div class="map-placeholder reveal">
+      <div class="map-dots">
+        <div class="map-dot"></div><div class="map-dot active"></div><div class="map-dot"></div><div class="map-dot active"></div><div class="map-dot"></div><div class="map-dot"></div><div class="map-dot active"></div><div class="map-dot"></div>
+        <div class="map-dot active"></div><div class="map-dot"></div><div class="map-dot"></div><div class="map-dot"></div><div class="map-dot active"></div><div class="map-dot"></div><div class="map-dot"></div><div class="map-dot active"></div>
+        <div class="map-dot"></div><div class="map-dot"></div><div class="map-dot active"></div><div class="map-dot"></div><div class="map-dot"></div><div class="map-dot active"></div><div class="map-dot"></div><div class="map-dot"></div>
+        <div class="map-dot active"></div><div class="map-dot"></div><div class="map-dot"></div><div class="map-dot active"></div><div class="map-dot"></div><div class="map-dot"></div><div class="map-dot"></div><div class="map-dot active"></div>
+        <div class="map-dot"></div><div class="map-dot active"></div><div class="map-dot"></div><div class="map-dot"></div><div class="map-dot active"></div><div class="map-dot"></div><div class="map-dot active"></div><div class="map-dot"></div>
+      </div>
+      <span class="map-label">United States</span>
+    </div>
+
+    <div class="chapter-list reveal">
+      <div class="chapter-item">
+        <div class="chapter-dot"></div>
+        <span>Montgomery County, MD</span>
+      </div>
+      <div class="chapter-item">
+        <div class="chapter-dot"></div>
+        <span>Fairfax County, VA</span>
+      </div>
+      <div class="chapter-item">
+        <div class="chapter-dot"></div>
+        <span>Washington D.C.</span>
+      </div>
+      <div class="chapter-item">
+        <div class="chapter-dot forming"></div>
+        <span>Prince George's County, MD <em style="font-size:0.75rem; opacity:0.6;">(forming)</em></span>
+      </div>
+      <div class="chapter-item">
+        <div class="chapter-dot forming"></div>
+        <span>Howard County, MD <em style="font-size:0.75rem; opacity:0.6;">(forming)</em></span>
+      </div>
+      <div class="chapter-item">
+        <div class="chapter-dot forming"></div>
+        <span>New York Metro Area <em style="font-size:0.75rem; opacity:0.6;">(forming)</em></span>
+      </div>
+      <div class="chapter-item" style="border: 1px dashed rgba(139,26,26,0.15); opacity:0.6;">
+        <div class="chapter-dot" style="background: var(--gold); opacity:0.5;"></div>
+        <span>Start a Chapter in Your Area</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <p class="section-label reveal">Get Involved</p>
+    <h2 class="section-title reveal">Join the Network</h2>
+    <div class="section-rule reveal"></div>
+    <div class="contact-grid">
+      <div class="contact-text reveal">
+        <p>Whether you're a student looking to find your community, an educator wanting to bring AAPI curriculum to your school, a researcher partnering on elder health studies, or a community elder with a story to tell — there is a place for you here.</p>
+
+        <div class="contact-person">
+          <h4>Historical Consultation</h4>
+          <p>MOCO High School Graduate, Class of ~2004</p>
+          <p>Historical context on AAPI discrimination — 25 years of firsthand perspective</p>
+          <a href="mailto:quillyt@gmail.com">Quintin Tai · quillyt@gmail.com</a>
+        </div>
+
+        <div class="contact-person">
+          <h4>Chi'ling Inc. General Inquiries</h4>
+          <p>Programs, partnerships, press, and chapter formation</p>
+          <a href="https://www.chiling.org" target="_blank">www.chiling.org</a>
+        </div>
+
+        <div class="contact-person">
+          <h4>Instagram</h4>
+          <p>Follow for events, essays, and community updates</p>
+          <a href="https://www.instagram.com/chiling.inc/" target="_blank">@chiling.inc</a>
+        </div>
+      </div>
+
+      <div class="contact-form reveal" style="transition-delay:0.15s;">
+        <div class="form-field">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your name">
+        </div>
+        <div class="form-field">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+        <div class="form-field">
+          <label>County / School</label>
+          <input type="text" placeholder="e.g. Montgomery County, Walt Whitman HS">
+        </div>
+        <div class="form-field">
+          <label>Area of Interest</label>
+          <select>
+            <option>Youth Ambassadorship</option>
+            <option>Essay Submission</option>
+            <option>Elder Stories Project</option>
+            <option>Cultural Workshops</option>
+            <option>Committee of 100 Board</option>
+            <option>Start a Chapter</option>
+            <option>Partnership / Organization</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Message</label>
+          <textarea rows="4" placeholder="Tell us about yourself and how you'd like to get involved..."></textarea>
+        </div>
+        <button class="btn btn-jade" onclick="alert('Thank you! We will be in touch soon.')">Submit →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Chi'ling Inc. · 兒女</h3>
+      <p>A nonprofit empowering Asian American and Pacific Islander youth through advocacy, storytelling, cultural education, and community — rooted in where we come from, reaching toward who we can become.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#programs">Ambassadorship</a></li>
+        <li><a href="#programs">Cultural Workshops</a></li>
+        <li><a href="#programs">Elder Stories</a></li>
+        <li><a href="#programs">Mental Health Seminars</a></li>
+        <li><a href="#advocacy">Essay Submissions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Organization</h4>
+      <ul>
+        <li><a href="#mission">Our Mission</a></li>
+        <li><a href="#heritage">Heritage Project</a></li>
+        <li><a href="#chapters">Find a Chapter</a></li>
+        <li><a href="#advocacy">Committee of 100</a></li>
+        <li><a href="https://www.chiling.org" target="_blank">Chi'ling Inc. →</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/chiling.inc/" target="_blank">Instagram</a></li>
+        <li><a href="mailto:quillyt@gmail.com">Quintin Tai</a></li>
+        <li><a href="#contact">Join Newsletter</a></li>
+        <li><a href="#contact">Press Inquiries</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Chi'ling Inc. · AAPI Youth Network · All rights reserved.</span>
+    <span>Powered by community, built with purpose · <a href="https://www.chiling.org" target="_blank">chiling.org</a></span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
